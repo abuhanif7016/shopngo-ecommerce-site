@@ -84,12 +84,12 @@ const Bags = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-20 px-4">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8 text-center">Bags</h1>
+        <h1 className="text-4xl font-bold text-black/65 mb-8 text-center">Bags</h1>
 
         {/* Header Stats */}
         <div className="flex justify-between items-center mb-8 bg-white p-4 rounded-lg shadow-sm">
-          <div className="text-lg font-semibold">Total Products: {filteredProducts.length}</div>
-          <div className="text-lg font-semibold">Cart Items: {cartCount}</div>
+          <div className="text-lg font-semibold text-black/65">Total Products: {filteredProducts.length}</div>
+          <div className="text-lg font-semibold text-black/65">Cart Items: {cartCount}</div>
         </div>
 
         {/* Search Bar */}
@@ -107,7 +107,7 @@ const Bags = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           {/* Sort */}
           <div>
-            <label className="block font-semibold mb-2">Sort By:</label>
+            <label className="block font-semibold mb-2 text-black">Sort By:</label>
             <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="select select-bordered w-full">
               <option value="name">Name (A-Z)</option>
               <option value="price-asc">Price (Low to High)</option>
@@ -117,7 +117,7 @@ const Bags = () => {
           </div>
 
           {/* Price Range */}
-          <div>
+          {/* <div>
             <label className="block font-semibold mb-2">Price Range: ${priceRange[0]} - ${priceRange[1]}</label>
             <input
               type="range"
@@ -127,10 +127,10 @@ const Bags = () => {
               onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
               className="range range-sm w-full"
             />
-          </div>
+          </div> */}
 
           {/* Rating Filter */}
-          <div>
+          {/* <div>
             <label className="block font-semibold mb-2">Min Rating: {ratingFilter.toFixed(1)} ⭐</label>
             <input
               type="range"
@@ -141,7 +141,7 @@ const Bags = () => {
               onChange={(e) => setRatingFilter(parseFloat(e.target.value))}
               className="range range-sm w-full"
             />
-          </div>
+          </div> */}
         </div>
 
         {/* Products Grid */}
