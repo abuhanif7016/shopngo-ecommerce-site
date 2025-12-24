@@ -102,15 +102,15 @@ const Electronics = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <section className="bg-linear-to-r from-cyan-950 to-cyan-400 text-white pt-17 pb-3 text-center sticky top-0 z-10 shadow-lg">
+      <section className="bg-linear-to-r from-blue-600 to-blue-400 text-white py-12 text-center sticky top-0 z-10 shadow-lg">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-5xl font-bold mb-2">Electronics</h1>
-          {/* <p className="text-lg">Browse our collection of latest electronic products</p> */}
+          <h1 className="text-5xl font-bold mb-2">📱 Electronics</h1>
+          <p className="text-lg">Browse our collection of latest electronic products</p>
           <div className="mt-4 flex justify-center gap-4">
             <div className="inline-block bg-white text-blue-600 px-4 py-2 rounded-full font-semibold">
               🛒 Cart: {cartCount} items
             </div>
-            <div className="inline-block bg-white text-gray-600 px-4 py-2 rounded-full font-semibold">
+            <div className="inline-block bg-white text-red-600 px-4 py-2 rounded-full font-semibold">
               ❤️ Wishlist: {wishlist.length} items
             </div>
           </div>
@@ -125,7 +125,7 @@ const Electronics = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Search */}
             <div>
-              <label className="block text-sm font-semibold text-gray-800 mb-2">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Search Products
               </label>
               <input
@@ -133,7 +133,7 @@ const Electronics = () => {
                 placeholder="Search by name..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-4 py-2 border text-black border-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
 
@@ -145,47 +145,33 @@ const Electronics = () => {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="w-full text-black px-4 py-2 border border-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                <option value="name" className="text-black">Name (A-Z)</option>
-                <option value="price-low" className="text-black">Price: Low to High</option>
-                <option value="price-high" className="text-black">Price: High to Low</option>
-                <option value="rating" className="text-black">Rating: High to Low</option>
+                <option value="name">Name (A-Z)</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Rating: High to Low</option>
               </select>
             </div>
 
             {/* Price Range */}
             <div>
-
-              <button
-            onClick={() => {
-              setSearchQuery("");
-              setSortBy("name");
-              setPriceRange([0, 100]);
-              setRatingFilter(0);
-            }}
-            className="mt-6 bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-6 rounded-lg transition"
-          >
-            Reset Filters
-          </button>
-
-
-              {/* <label className="block text-sm font-semibold text-gray-700 mb-2">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Max Price: ${priceRange[1]}
-              </label> */}
-              {/* <input
+              </label>
+              <input
                 type="range"
                 min="0"
                 max="100"
                 value={priceRange[1]}
                 onChange={(e) => setPriceRange([0, parseInt(e.target.value)])}
                 className="w-full"
-              /> */}
-              {/* <div className="text-xs text-gray-500 mt-1">$0 - ${priceRange[1]}</div> */}
+              />
+              <div className="text-xs text-gray-500 mt-1">$0 - ${priceRange[1]}</div>
             </div>
 
             {/* Rating Filter */}
-            {/* <div>
+            <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Min Rating: ⭐ {ratingFilter.toFixed(1)}
               </label>
@@ -199,11 +185,21 @@ const Electronics = () => {
                 className="w-full"
               />
               <div className="text-xs text-gray-500 mt-1">0 - 5 stars</div>
-            </div> */}
+            </div>
           </div>
 
           {/* Reset Button */}
-          
+          <button
+            onClick={() => {
+              setSearchQuery("");
+              setSortBy("name");
+              setPriceRange([0, 100]);
+              setRatingFilter(0);
+            }}
+            className="mt-6 bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-6 rounded-lg transition"
+          >
+            Reset Filters
+          </button>
         </div>
       </section>
 

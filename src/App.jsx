@@ -10,8 +10,17 @@ import Bags from './components/Bags'
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page)
+    const path = page === 'home' ? '/' : `/${page}`
+    window.history.pushState(null, '', path)
+  }
+
   useEffect(() => {
-    const path = window.location.pathname
+    let path = window.location.pathname;
+    if (path === '/' && window.location.search.startsWith('?/')) {
+      path = window.location.search.slice(1);
+    }
     if (path === '/electronics') {
       setCurrentPage('electronics')
     } else if (path === '/apparel') {
@@ -27,7 +36,7 @@ function App() {
 
   return (
     <>
-      <NavBar />
+      <NavBar setCurrentPage={handlePageChange} />
       {currentPage === 'electronics' ? <Electronics /> : currentPage === 'apparel' ? <Apparel /> : currentPage === 'beauty' ? <Beauty /> : currentPage === 'bags' ? <Bags /> : <Home />}
     </>
   )

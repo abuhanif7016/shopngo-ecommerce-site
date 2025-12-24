@@ -1,13 +1,13 @@
 import React from 'react';
 
-const NavBar = () => {
+const NavBar = ({ setCurrentPage }) => {
     const link = (
         <>
-            <li><a onClick={() => window.location.href = '/'} className="hover:text-blue-500 rounded-2xl cursor-pointer">Home</a></li>
-            <li><a onClick={() => window.location.href = '/electronics'} className="hover:text-blue-500 rounded-2xl cursor-pointer">Electronics</a></li>
-            <li><a onClick={() => window.location.href = '/apparel'} className="hover:text-blue-500 rounded-2xl cursor-pointer">Apparel</a></li>
-            <li><a onClick={() => window.location.href = '/beauty'} className="hover:text-blue-500 rounded-2xl cursor-pointer">Beauty</a></li>
-            <li><a onClick={() => window.location.href = '/bags'} className="hover:text-blue-500 rounded-2xl cursor-pointer">Bags</a></li>
+            <li><a onClick={() => setCurrentPage('home')} className="hover:text-blue-500 rounded-2xl cursor-pointer">Home</a></li>
+            <li><a onClick={() => setCurrentPage('electronics')} className="hover:text-blue-500 rounded-2xl cursor-pointer">Electronics</a></li>
+            <li><a onClick={() => setCurrentPage('apparel')} className="hover:text-blue-500 rounded-2xl cursor-pointer">Apparel</a></li>
+            <li><a onClick={() => setCurrentPage('beauty')} className="hover:text-blue-500 rounded-2xl cursor-pointer">Beauty</a></li>
+            <li><a onClick={() => setCurrentPage('bags')} className="hover:text-blue-500 rounded-2xl cursor-pointer">Bags</a></li>
             <li><a className="hover:text-blue-500 rounded-2xl cursor-pointer">About</a></li>
             <li><a className="hover:text-blue-500 rounded-2xl cursor-pointer">Services</a></li>
             <li><a className="hover:text-blue-500 rounded-2xl cursor-pointer">Contact</a></li>
@@ -26,7 +26,7 @@ const NavBar = () => {
         {link}
       </ul>
     </div>
-    <a onClick={() => window.location.href = '/'} className="btn btn-ghost cursor-pointer hover:cursor-pointer text-xl rounded-2xl hover:text-blue-500">ShopNGo</a>
+    <a onClick={() => setCurrentPage('home')} className="btn btn-ghost cursor-pointer hover:cursor-pointer text-xl rounded-2xl hover:text-blue-500">ShopNGo</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">

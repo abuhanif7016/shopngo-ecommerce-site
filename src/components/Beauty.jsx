@@ -102,10 +102,10 @@ const Beauty = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <section className="bg-linear-to-r pt-17 pb-3 from-black to-blue-400 text-white py-12 text-center sticky top-0 z-10 shadow-lg">
+      <section className="bg-linear-to-r from-pink-600 to-pink-400 text-white py-12 text-center sticky top-0 z-10 shadow-lg">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-5xl font-bold mb-2">Beauty</h1>
-          <p className="text-sm">Premium beauty and skincare products</p>
+          <h1 className="text-5xl font-bold mb-2">💄 Beauty</h1>
+          <p className="text-lg">Premium beauty and skincare products</p>
           <div className="mt-4 flex justify-center gap-4">
             <div className="inline-block bg-white text-pink-600 px-4 py-2 rounded-full font-semibold">
               🛒 Cart: {cartCount} items
@@ -145,32 +145,18 @@ const Beauty = () => {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
               >
-                <option value="name" className="text-black/35">Name (A-Z)</option>
-                <option value="price-low" className="text-black">Price: Low to High</option>
-                <option value="price-high" className="text-black">Price: High to Low</option>
-                <option value="rating" className="text-black">Rating: High to Low</option>
+                <option value="name">Name (A-Z)</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Rating: High to Low</option>
               </select>
             </div>
 
             {/* Price Range */}
             <div>
-              {/* Reset Button */}
-          <button
-            onClick={() => {
-              setSearchQuery("");
-              setSortBy("name");
-              setPriceRange([0, 100]);
-              setRatingFilter(0);
-            }}
-            className="mt-6 bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-6 rounded-lg transition"
-          >
-            Reset Filters
-          </button>
-
-
-              {/* <label className="block text-sm font-semibold text-gray-700 mb-2">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Max Price: ${priceRange[1]}
               </label>
               <input
@@ -181,12 +167,12 @@ const Beauty = () => {
                 onChange={(e) => setPriceRange([0, parseInt(e.target.value)])}
                 className="w-full"
               />
-              <div className="text-xs text-gray-500 mt-1">$0 - ${priceRange[1]}</div> */}
+              <div className="text-xs text-gray-500 mt-1">$0 - ${priceRange[1]}</div>
             </div>
 
             {/* Rating Filter */}
             <div>
-              {/* <label className="block text-sm font-semibold text-gray-700 mb-2">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Min Rating: ⭐ {ratingFilter.toFixed(1)}
               </label>
               <input
@@ -198,11 +184,22 @@ const Beauty = () => {
                 onChange={(e) => setRatingFilter(parseFloat(e.target.value))}
                 className="w-full"
               />
-              <div className="text-xs text-gray-500 mt-1">0 - 5 stars</div> */}
+              <div className="text-xs text-gray-500 mt-1">0 - 5 stars</div>
             </div>
           </div>
 
-          
+          {/* Reset Button */}
+          <button
+            onClick={() => {
+              setSearchQuery("");
+              setSortBy("name");
+              setPriceRange([0, 100]);
+              setRatingFilter(0);
+            }}
+            className="mt-6 bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-6 rounded-lg transition"
+          >
+            Reset Filters
+          </button>
         </div>
       </section>
 
